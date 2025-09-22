@@ -1,6 +1,6 @@
 # 🔹Proyecto de pagina web para un minimercado
 
-Modelo entidad relacion ![alt text](image.png) (MER)
+## 🔹Modelo entidad relacion ![alt text](image.png)
 
 ## 🔹 Supuestos del sistema
 
