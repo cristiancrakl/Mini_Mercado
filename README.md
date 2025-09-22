@@ -70,19 +70,19 @@ Modelo entidad relacion ![alt text](image.png) (MER)
 
 ## 🔹 Requerimientos no funcionales
 
-### Seguridad:
+### 🦺Seguridad:
 
 -   Control de acceso por usuario (registradoPor).
 -   Validación de datos (ejemplo: no permitir facturas sin cliente ni detalle).
 
-### Escalabilidad:
+### 🧗🏾‍♂️Escalabilidad:
 
 -   La base de datos debe soportar grandes volúmenes de facturas, productos y clientes.
 
-### Usabilidad:
+### 🚮Usabilidad:
 
 -   Interfaz intuitiva para registrar facturas y pagos rápidamente.
 
-### Disponibilidad:
+### ☝️Disponibilidad:
 
 -   El sistema debe estar disponible la mayor parte del tiempo para no interrumpir las ventas.
