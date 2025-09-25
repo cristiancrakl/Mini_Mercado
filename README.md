@@ -89,4 +89,4 @@
 
 -   El sistema debe estar disponible la mayor parte del tiempo para no interrumpir las ventas.
 
-Faltan pero estan en proceso
+Faltan pero estan en proceso vamos con cosas
