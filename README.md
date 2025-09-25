@@ -1,14 +1,16 @@
 # 🔹Proyecto de pagina web para un minimercado
 
-## 🔹Modelo entidad relacion ![alt text](image.png)
+## 🔹Modelo entidad relacion ![alt text](image-1.png)
+
+### link:https://drawsql.app/teams/clmc/diagrams/ventas-comprasmercado
 
 ## 🔹 Supuestos del sistema
 
 1. Cada **factura** pertenece a un único **cliente**, pero un cliente puede tener varias facturas.
 2. Una **factura** puede tener uno o varios **productos** registrados en el **detalleFactura**.
 3. Los precios de los productos (compra y venta) pueden cambiar, pero en el detalle de factura y detalle de compras se guarda el precio vigente en el momento de la transacción.
-4. El inventario de productos se actualiza automáticamente según las ventas (disminuye) y las compras (aumenta).
-5. Los **pagos** pueden ser **totales o parciales**, y una factura puede quedar con **saldo pendiente** hasta completarse.
+4. El inventario de productos se actualiza automáticamente según las ventas **(disminuye)** y las compras **(aumenta)**.
+5. Los **pagos** y **compras** pueden ser **totales o parciales**, y una factura puede quedar con **saldo pendiente** hasta completarse.
 6. Los **métodos de pago** son configurables (efectivo, tarjeta, transferencia, etc.) y pueden variar según las necesidades de la empresa.
 7. Cada **orden de compra** está asociada a un único proveedor, y un proveedor puede tener múltiples órdenes de compra.
 8. Las órdenes de compra tienen estados (pendiente, recibida, anulada).
