@@ -98,3 +98,5 @@
 ### Jhon Gomez - 192436
 
 ### Jesus Urquijo - 192435
+
+### Johan Sebastian Trigos Perez - 192206
