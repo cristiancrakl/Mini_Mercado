@@ -89,4 +89,12 @@
 
 -   El sistema debe estar disponible la mayor parte del tiempo para no interrumpir las ventas.
 
-Faltan pero estan en proceso vamos con cosas
+## 🔹Autores
+
+### Cristian Leonardo Morales Cadena - 192429
+
+### Carlos Johan Navarro Delgado - 192343
+
+### Jhon Gomez - 192436
+
+### Jesus Urquijo - 192435
