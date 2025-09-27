@@ -7,7 +7,7 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="#" class="h1"><b>Mini</b>mercado</a>
+            <a href="{{ url('/') }}" class="h1"><b>{{ config('app.name', 'Minimercado') }}</a>
         </div>
         <div class="card-body">
             <p class="login-box-msg">Ingresa los datos para iniciar sesion</p>
@@ -68,7 +68,7 @@
             </form>
 
             <div class="social-auth-links text-center mt-2 mb-3">
-                <a href="#" class="btn btn-block btn-primary">
+                <a href="" class="btn btn-block btn-primary">
                     <i class="fab fa-facebook mr-2"></i> Entrar con Facebook
                 </a>
                 <a href="#" class="btn btn-block btn-danger">

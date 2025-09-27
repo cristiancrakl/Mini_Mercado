@@ -1,10 +1,11 @@
 @extends('layouts.app_authenticator')
 
+
 @section('content')
 <div class="register-box">
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="../../index2.html" class="h1"><b>Mini</b>mercado</a>
+            <a href="{{ url('/') }}" class="h1">{{ config('app.name', 'Minimercado') }}</a>
         </div>
         <div class="card-body">
             <p class="login-box-msg">Register a new membership</p>
