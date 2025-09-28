@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/iconos/logoPrincipal.png')}}" type="image/x-icon">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -89,7 +89,8 @@
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
         <div class="container">
-            <p class="mb-0">&copy; {{ date('Y') }} {{ config('app.name', 'Minimercado') }}. Todos los derechos
+            <p class="mb-0">&copy; {{ date('Y') }} {{ config('app.name', 'Minimercado') }}. Todos los
+                derechos
                 reservados.</p>
         </div>
     </footer>

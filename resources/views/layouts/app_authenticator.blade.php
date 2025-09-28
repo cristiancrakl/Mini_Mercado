@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/iconos/logoPrincipal.png')}}" type="image/x-icon">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -24,6 +24,13 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     @stack('css')
+
+    <style>
+        .login-page {
+
+            background: linear-gradient(135deg, #007bff 0%, #28a745 100%);
+        }
+    </style>
 </head>
 
 <body class="hold-transition login-page">
