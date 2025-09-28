@@ -11,6 +11,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/myStyle.css')}}">
 
     {{-- Cargar Bootstrap y scripts compilados con Vite --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -19,39 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 
     <!-- Custom Styles -->
-    <style>
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, #007bff 0%, #28a745 100%);
-        }
 
-        .hero-section {
-            display: flex;
-            align-items: center;
-            padding: 5rem 0;
-        }
-
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            background: transparent;
-        }
-
-        main {
-            flex: 1 0 auto;
-            background: linear-gradient(135deg, #007bff 0%, #28a745 100%);
-        }
-
-        footer {
-            flex-shrink: 0;
-        }
-    </style>
 </head>
 
 <body>

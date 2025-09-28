@@ -20,17 +20,15 @@
     <link rel="stylesheet" href="{{asset('backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('backend/dist/css/adminlte.css')}}">
+
+    <!--estilos customizados -->
+
+    <link rel="stylesheet" href="{{ asset('css/myStyle.css')}}">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     @stack('css')
 
-    <style>
-        .login-page {
-
-            background: linear-gradient(135deg, #007bff 0%, #28a745 100%);
-        }
-    </style>
 </head>
 
 <body class="hold-transition login-page">
