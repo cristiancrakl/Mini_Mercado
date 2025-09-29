@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('proveedores_id')->references('id')->on('proveedores');
             $table->foreignId('ordenCompra_id')->references('id')->on('orden_compra');
             $table->decimal('cantidad', 10, 2);
-            $table->decimal('precio_unitario', 10, 2);
             $table->decimal('sub_total', 10, 2);
             $table->decimal('iva', 10, 2);
             $table->string('registrado_por');

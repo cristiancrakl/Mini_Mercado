@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('factura_id')->references('id')->on('factura');
             $table->decimal('cantidad', 10, 2);
             $table->decimal('sub_total', 10, 2);
-            $table->decimal('precio_unitario', 10, 2);
             $table->string('registrado_por');
             $table->timestamps();
         });
