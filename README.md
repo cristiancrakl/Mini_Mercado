@@ -1,6 +1,6 @@
 # 🔹Proyecto de pagina web para un minimercado
 
-## 🔹Modelo entidad relacion ![alt text](image-1.png)
+## 🔹Modelo entidad relacion ![alt text](image.png)
 
 ### link:https://drawsql.app/teams/clmc/diagrams/ventas-comprasmercado
 
