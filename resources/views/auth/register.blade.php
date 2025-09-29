@@ -8,7 +8,7 @@
             <a href="{{ url('/') }}" class="h1">{{ config('app.name', 'Minimercado') }}</a>
         </div>
         <div class="card-body">
-            <p class="login-box-msg">Register a new membership</p>
+            <p class="login-box-msg">Resgistrar nuevo usuario</p>
 
             <form method="POST" action="{{ route('register') }}">
                 @csrf

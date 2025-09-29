@@ -6,7 +6,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contactanos</a>
@@ -77,10 +77,8 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
             </div>
-        </div>
-        <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();document.getElementById('logout-form').submit();" title="Cerrar Sesión"
                 role="button">
@@ -89,7 +87,7 @@
             <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none">
                 @csrf
             </form>
-        </li>
+        </div>
     </ul>
 </nav>
 <!-- /.navbar -->
