@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detalle_compra', function (Blueprint $table) {
+        Schema::create('detalle_compras', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('proveedores_id')->references('id')->on('proveedores');
-            $table->foreignId('ordenCompra_id')->references('id')->on('orden_compra');
+            $table->foreignId('producto_id')->references('id')->on('productos');
+            $table->foreignId('ordenCompras_id')->references('id')->on('orden_compras');
             $table->decimal('cantidad', 10, 2);
             $table->decimal('sub_total', 10, 2);
             $table->decimal('iva', 10, 2);
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detalle_compra');
+        Schema::dropIfExists('detalle_compras');
     }
 };

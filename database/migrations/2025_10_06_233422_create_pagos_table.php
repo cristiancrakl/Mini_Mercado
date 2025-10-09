@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pago', function (Blueprint $table) {
+        Schema::create('pagos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('factura_id')->references('id')->on('factura');
-            $table->foreignId('metodoPago_id')->references('id')->on('metodo_pago');
+            $table->foreignId('facturas_id')->references('id')->on('facturas');
+            $table->foreignId('metodoPagos_id')->references('id')->on('metodo_pagos');
             $table->decimal('monto', 10, 2);
             $table->string('registrado_por');
             $table->tinyInteger('estado');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pago');
+        Schema::dropIfExists('pagos');
     }
 };

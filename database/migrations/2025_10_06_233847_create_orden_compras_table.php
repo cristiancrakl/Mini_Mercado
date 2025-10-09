@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orden_compra', function (Blueprint $table) {
+        Schema::create('orden_compras', function (Blueprint $table) {
             $table->id();
             $table->foreignId('proveedores_id')->references('id')->on('proveedores');
             $table->string('numero_orden');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orden_compra');
+        Schema::dropIfExists('orden_compras');
     }
 };

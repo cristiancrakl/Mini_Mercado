@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pago_compra', function (Blueprint $table) {
+        Schema::create('pago_compras', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ordenCompra_id')->references('id')->on('orden_compra');
-            $table->foreignId('metodoPago_id')->references('id')->on('metodo_pago');
+            $table->foreignId('ordenCompras_id')->references('id')->on('orden_compras');
+            $table->foreignId('metodoPagos_id')->references('id')->on('metodo_pagos');
             $table->decimal('monto', 10, 2);
             $table->string('referencia_transaccion');
             $table->string('registrado_por');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pago_compra');
+        Schema::dropIfExists('pago_compras');
     }
 };
