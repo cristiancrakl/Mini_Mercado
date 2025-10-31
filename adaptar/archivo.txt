@@ -1,0 +1,8 @@
+Route::get('cambioestadopais', [PaisController::class, 'cambioestadopais'])->name('cambioestadopais');
+
+public function cambioestadoareatrabajo(Request $request)
+	{
+		$areatrabajo = Areatrabajo::find($request->id);
+		$areatrabajo->estado=$request->estado;
+		$areatrabajo->save();
+	}

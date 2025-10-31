@@ -31,11 +31,11 @@ class DetalleFactura extends Model
 
     public function factura()
     {
-        return $this->belongsTo(Factura::class, 'factura_id');
+        return $this->belongsTo(Factura::class);
     }
 
     public function producto()
     {
-        return $this->belongsTo(Producto::class, 'producto_id');
+        return $this->belongsTo(Producto::class);
     }
 }
