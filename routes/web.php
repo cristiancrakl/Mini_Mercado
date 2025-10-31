@@ -31,5 +31,6 @@ Route::post('cambioestadoProducto', [ProductoController::class, 'cambioestadoPro
 Route::post('cambioestadoFactura', [FacturaController::class, 'cambioestadoFactura'])->name('cambioestadoFactura');
 Route::post('cambioestadoProveedor', [ProveedorController::class, 'cambioestadoProveedor'])->name('cambioestadoProveedor');
 Route::post('cambioestadoMetodoPago', [MetodoPagoController::class, 'cambioestadoMetodoPago'])->name('cambioestadoMetodoPago');
+Route::post('cambioestadoOrdenCompra', [OrdenCompraController::class, 'cambioestadoOrdenCompra'])->name('cambioestadoOrdenCompra');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

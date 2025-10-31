@@ -40,6 +40,8 @@
     <!-- Bootstrap Switch -->
     <link rel="stylesheet" href="{{asset('backend/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css')}}">
 
+    <link rel="stylesheet" href="{{asset('backend/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -69,7 +71,7 @@
 <script src="{{asset('backend/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    $.widget.bridge('uibutton', $.ui.button)
+$.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -117,6 +119,10 @@
 <script src="{{asset('backend/dist/js/table.js')}}"></script>
 
 <script src="{{asset('backend/dist/js/statusChange.js')}}"></script>
+<script src="{{asset('backend/dist/js/deleteConfirm.js')}}"></script>
+<!-- Sweetalert2 -->
+<script src="{{asset('backend/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.js"></script>
 
 
 @stack('scripts')

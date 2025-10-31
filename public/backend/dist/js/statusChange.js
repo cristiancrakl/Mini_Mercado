@@ -20,6 +20,7 @@ $(document).ready(function () {
                 case "factura":
                 case "proveedor":
                 case "metodopago":
+                case "ordencompra":
                     url = $(this).data("url");
                     break;
                 default:

@@ -49,12 +49,9 @@
                                                 type="checkbox" data-toggle="switch" data-on-text="Activo"
                                                 data-off-text="Inactivo" data-on-color="success" data-off-color="danger"
                                                 {{ $metodoPago->estado ? 'checked' : '' }}>
-                                            @can('metodo_pagos.edit')
                                             <a href="{{ route('metodo_pagos.edit',$metodoPago->id) }}"
                                                 class="btn btn-info btn-sm" title="Editar"><i
                                                     class="fas fa-pencil-alt"></i></a>
-                                            @endcan
-                                            @can('metodo_pagos.destroy')
                                             <form class="d-inline delete-form"
                                                 action="{{ route('metodo_pagos.destroy', $metodoPago) }}" method="POST">
                                                 @csrf
@@ -62,7 +59,6 @@
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Eliminar"><i
                                                         class="fas fa-trash-alt"></i></button>
                                             </form>
-                                            @endcan
                                         </td>
                                     </tr>
                                     @endforeach

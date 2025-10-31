@@ -18,10 +18,10 @@
                         <div class="card-header bg-secondary"
                             style="font-size: 1.75rem;font-weight: 500; line-height: 1.2; margin-bottom: 0.5rem;">
                             @yield('title')
-                            @can('clientes.create')
+
                             <a href="{{ route('clientes.create') }}" class="btn btn-primary float-right"
                                 title="Nuevo"><i class="fas fa-plus nav-icon"></i></a>
-                            @endcan
+
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-hover" style="width:100%">

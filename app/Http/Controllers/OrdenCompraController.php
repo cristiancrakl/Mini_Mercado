@@ -63,4 +63,12 @@ class OrdenCompraController extends Controller
     {
         //
     }
+
+    public function cambioestadoOrdenCompra(Request $request)
+    {
+        $ordenCompra = OrdenCompra::find($request->id);
+        $ordenCompra->estado = $request->estado;
+        $ordenCompra->save();
+        return response()->json(['success' => true]);
+    }
 }

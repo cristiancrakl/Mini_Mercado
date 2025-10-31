@@ -57,12 +57,9 @@
                                                 type="checkbox" data-toggle="switch" data-on-text="Activo"
                                                 data-off-text="Inactivo" data-on-color="success" data-off-color="danger"
                                                 {{ $proveedor->estado ? 'checked' : '' }}>
-                                            @can('proveedores.edit')
                                             <a href="{{ route('proveedores.edit',$proveedor->id) }}"
                                                 class="btn btn-info btn-sm" title="Editar"><i
                                                     class="fas fa-pencil-alt"></i></a>
-                                            @endcan
-                                            @can('proveedores.destroy')
                                             <form class="d-inline delete-form"
                                                 action="{{ route('proveedores.destroy', $proveedor) }}" method="POST">
                                                 @csrf
@@ -70,7 +67,6 @@
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Eliminar"><i
                                                         class="fas fa-trash-alt"></i></button>
                                             </form>
-                                            @endcan
                                         </td>
                                     </tr>
                                     @endforeach

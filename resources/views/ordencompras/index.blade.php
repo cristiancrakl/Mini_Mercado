@@ -46,12 +46,14 @@
                                         </td>
                                         <td>{{ $ordenCompra->total }}</td>
                                         <td>
-                                            @can('orden_compras.edit')
+                                            <input data-type="ordencompra" data-id="{{$ordenCompra->id}}"
+                                                data-url="{{ route('cambioestadoOrdenCompra') }}" class="toggle-class"
+                                                type="checkbox" data-toggle="switch" data-on-text="Activo"
+                                                data-off-text="Inactivo" data-on-color="success" data-off-color="danger"
+                                                {{ $ordenCompra->estado ? 'checked' : '' }}>
                                             <a href="{{ route('orden_compras.edit',$ordenCompra->id) }}"
                                                 class="btn btn-info btn-sm" title="Editar"><i
                                                     class="fas fa-pencil-alt"></i></a>
-                                            @endcan
-                                            @can('orden_compras.destroy')
                                             <form class="d-inline delete-form"
                                                 action="{{ route('orden_compras.destroy', $ordenCompra) }}"
                                                 method="POST">
@@ -60,7 +62,6 @@
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Eliminar"><i
                                                         class="fas fa-trash-alt"></i></button>
                                             </form>
-                                            @endcan
                                         </td>
                                     </tr>
                                     @endforeach
