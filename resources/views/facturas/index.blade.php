@@ -18,10 +18,8 @@
                         <div class="card-header bg-secondary"
                             style="font-size: 1.75rem;font-weight: 500; line-height: 1.2; margin-bottom: 0.5rem;">
                             @yield('title')
-                            @can('facturas.create')
                             <a href="{{ route('facturas.create') }}" class="btn btn-primary float-right"
                                 title="Nuevo"><i class="fas fa-plus nav-icon"></i></a>
-                            @endcan
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-hover" style="width:100%">
@@ -49,14 +47,14 @@
                                         <td>{{ $factura->tipo_pago }}</td>
                                         <td>{{ $factura->descuento }}</td>
                                         <td>
-                                            {{ $factura->estado ? 'Activo' : 'Inactivo' }}
-                                        </td>
-                                        <td>
                                             <input data-type="factura" data-id="{{$factura->id}}"
                                                 data-url="{{ route('cambioestadoFactura') }}" class="toggle-class"
                                                 type="checkbox" data-toggle="switch" data-on-text="Activo"
                                                 data-off-text="Inactivo" data-on-color="success" data-off-color="danger"
                                                 {{ $factura->estado ? 'checked' : '' }}>
+                                        </td>
+                                        <td>
+
                                             <a href="{{ route('facturas.edit',$factura->id) }}"
                                                 class="btn btn-info btn-sm" title="Editar"><i
                                                     class="fas fa-pencil-alt"></i></a>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Crear Usuario')
+@section('title','Crear Producto')
 
 @section('content')
 <div class="content-wrapper">
@@ -17,70 +17,89 @@
                         <div class="card-header bg-secondary">
                             <h3>@yield('title')</h3>
                         </div>
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('clientes.store') }}">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('productos.store') }}">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                         <div class="form-group label-floating">
-
                                             <div class="form-row">
+
                                                 <div class="form-group col-md-4">
-                                                    <label class="control-label">Nombre <strong
+                                                    <label class="control-label">Nombre<strong
                                                             style="color:red;">(*)</strong></label>
                                                     <input required type="text" class="form-control" name="nombre"
                                                         placeholder="Por ejemplo, Juan Tirilo" autocomplete="off"
                                                         value="{{ old('nombre') }}">
-                                                </div>
-                                                <div class="form-group col-md-4">
-                                                    <label class="control-label">Tipo de documento <strong
-                                                            style="color:red;">(*)</strong></label>
-                                                    <select required class="form-control" id="tipo_documento"
-                                                        name="tipo_documento" required>
-                                                        <option value="" disabled selected>Seleccione una opcion
-                                                        </option>
-                                                        <option value="CC">CC</option>
-                                                        <option value="CE">CE</option>
-                                                        <option value="TI">TI</option>
-                                                    </select>
 
                                                 </div>
+
                                                 <div class="form-group col-md-4">
-                                                    <label class="control-label">numero documento <strong
+                                                    <label class="control-label">Descripcion<strong
+                                                            style="color:red;">(*)</strong></label>
+                                                    <input required type="text" class="form-control" name="descripcion"
+                                                        placeholder="Por ejemplo, este articulo es" autocomplete="off"
+                                                        value="{{ old('descripcion') }}">
+                                                </div>
+
+                                                <div class="form-group col-md-4">
+                                                    <label class="control-label">Unidad de Medida<strong
+                                                            style="color:red;">(*)</strong></label>
+                                                    <input required type="text" class="form-control"
+                                                        name="unidad_medida" placeholder="Por ejemplo, Juan Tirilo"
+                                                        autocomplete="off" value="{{ old('unidad_medida') }}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Precio de venta<strong
                                                             style="color:red;">(*)</strong></label>
                                                     <input required type="number" class="form-control"
-                                                        name="numero_documento" placeholder="Por ejemplo, 1067-XXX-XXX"
-                                                        autocomplete="off" value="{{ old('numero_documento') }}">
+                                                        name="precio_venta" placeholder="Por ejemplo, Juan Tirilo"
+                                                        autocomplete="off" value="{{ old('precio_venta') }}">
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Precio de compra <strong
+                                                            style="color:red;">(*)</strong></label>
+                                                    <input required type="number" class="form-control"
+                                                        name="precio_compra" placeholder="Por ejemplo, Juan Tirilo"
+                                                        autocomplete="off" value="{{ old('precio_compra') }}">
 
                                                 </div>
                                             </div>
 
                                             <div class="form-row">
 
-                                                <div class="form-group col-md-4">
-                                                    <label class="control-label">direccion <strong
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">stock<strong
                                                             style="color:red;">(*)</strong></label>
-                                                    <input required type="text" class="form-control" name="direccion"
-                                                        placeholder="Por ejemplo, calle 9 #X-XX" autocomplete="off"
-                                                        value="{{ old('direccion') }}">
-                                                </div>
-
-                                                <div class="form-group col-md-4">
-                                                    <label class="control-label">telefono <strong
-                                                            style="color:red;">(*)</strong></label>
-                                                    <input required type="number" class="form-control" name="telefono"
-                                                        placeholder="Por ejemplo, 311-675-XX-XX" autocomplete="off"
-                                                        value="{{ old('telefono') }}">
-                                                </div>
-
-                                                <div class="form-group col-md-4">
-                                                    <label class="control-label">email <strong
-                                                            style="color:red;">(*)</strong></label>
-                                                    <input required type="email" class="form-control" name="email"
+                                                    <input required type="number" class="form-control" name="stock"
                                                         placeholder="Por ejemplo, Juan Tirilo" autocomplete="off"
-                                                        value="{{ old('email') }}">
+                                                        value="{{ old('stock') }}">
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    <label class="control-label">Stock minimo<strong
+                                                            style="color:red;">(*)</strong></label>
+                                                    <input required type="number" class="form-control"
+                                                        name="stock_minimo" placeholder="Por ejemplo, Juan Tirilo"
+                                                        autocomplete="off" value="{{ old('stock_minimo') }}">
                                                 </div>
                                             </div>
+
+                                            <label class="control-label">imagen <strong
+                                                    style="color:red;">(*)</strong></label>
+                                            <input required type="file" class="form-control" name="imagen"
+                                                placeholder="Por ejemplo, Juan Tirilo" autocomplete="off"
+                                                value="{{ old('imagen') }}">
+
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +114,7 @@
                                             class="btn btn-primary btn-block btn-flat">Registrar</button>
                                     </div>
                                     <div class="col-lg-2 col-xs-4">
-                                        <a href="{{ route('clientes.index') }}"
+                                        <a href="{{ route('productos.index') }}"
                                             class="btn btn-danger btn-block btn-flat">Atras</a>
                                     </div>
                                 </div>

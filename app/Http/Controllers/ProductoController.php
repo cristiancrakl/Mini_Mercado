@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use Illuminate\Support\Str;
+use Illuminate\Database\QueryException;
+use Exception;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+
 
 class ProductoController extends Controller
 {
@@ -21,7 +27,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        return view('productos.create');
     }
 
     /**
@@ -29,7 +35,21 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = Producto::create($request->all());
+
+
+        if ($request->hasFile("imagen")) {
+
+            $imagen = $request->file("imagen");
+            $nombreImagen = Str::slug($request->nombre) . "." . $imagen->guessExtension();
+            $ruta = public_path("img/post/");
+            $imagen->move($ruta, $nombreImagen);
+
+            $producto->imagen = $nombreImagen;
+            $producto->save();
+        }
+
+        return redirect()->route('productos.index')->with('successMsg', 'El registro se creó exitosamente');
     }
 
     /**
@@ -59,9 +79,20 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Producto $producto)
     {
-        //
+        try {
+            $producto->delete();
+            return redirect()->route('productos.index')->with('successMsg', 'El registro se eliminó exitosamente');
+        } catch (QueryException $e) {
+            // Capturar y manejar violaciones de restricción de clave foránea
+            Log::error('Error al eliminar el ciudad: ' . $e->getMessage());
+            return redirect()->route('productos.index')->withErrors('El registro que desea eliminar tiene información relacionada. Comuníquese con el Administrador');
+        } catch (Exception $e) {
+            // Capturar y manejar cualquier otra excepción
+            Log::error('Error inesperado al eliminar el ciudad: ' . $e->getMessage());
+            return redirect()->route('productos.index')->withErrors('Ocurrió un error inesperado al eliminar el registro. Comuníquese con el Administrador');
+        }
     }
 
     public function cambioestadoProducto(Request $request)

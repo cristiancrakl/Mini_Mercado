@@ -1,0 +1,104 @@
+@extends('layouts.app')
+
+@section('title','Crear Factura')
+
+@section('content')
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+        </div>
+    </section>
+    @include('layouts.partial.msg')
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-secondary">
+                            <h3>@yield('title')</h3>
+                        </div>
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('facturas.store') }}">
+                            @csrf
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                                        <div class="form-group label-floating">
+
+                                            <label class="control-label">ID del cliente<strong
+                                                    style="color:red;">(*)</strong></label>
+                                            <input type="text" class="form-control" name="cliente_id"
+                                                placeholder="Por ejemplo, 1, 2, 3" autocomplete="off"
+                                                value="{{ old('cliente_id') }}">
+
+                                            <div class="form-row">
+
+                                                <div class="form-group col-md-4 ">
+                                                    <label class="control-label">Precio de
+                                                        compra<strong style="color:red;">(*)</strong></label>
+                                                    <input type="text" class="form-control" autocomplete="off"
+                                                        name="precio_compra" placeholder="Por ejemplo, 1500"
+                                                        value="{{ old('precio_compra') }}">
+                                                </div>
+
+                                                <div class="form-group col-md-4 ">
+                                                    <label class="control-label">Saldo
+                                                        Pendiente<strong style="color:red;">(*)</strong></label>
+                                                    <input type="text" class="form-control" name="saldo_pendiente"
+                                                        value="{{ old('saldo_pendiente') }}"
+                                                        placeholder="Por ejemplo, 600" autocomplete="off">
+                                                </div>
+                                                <div class="form-group col-md-4 ">
+                                                    <label class="control-label">Precio de venta<strong
+                                                            style="color:red;">(*)</strong></label>
+                                                    <input type="text" class="form-control" name="precio_venta"
+                                                        value="{{ old('precio_venta') }}"
+                                                        placeholder="Por ejemplo, 1800" autocomplete="off">
+                                                </div>
+
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <input type="hidden" class="form-control" name="descuento" value="1000">
+
+                                <input type="hidden" class="form-control" name="tipo_pago" value="1">
+
+
+
+                                <input type="hidden" class="form-control" name="iva" value="200">
+
+                                <input type="hidden" class="form-control" name="total" value="1200">
+
+
+
+                                <input type="hidden" class="form-control" name="estado" value="1">
+                                <input type="hidden" class="form-control" name="registrado_por"
+                                    value="{{ Auth::user()->id }}">
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-lg-2 col-xs-4">
+                                        <button type="submit"
+                                            class="btn btn-primary btn-block btn-flat">Registrar</button>
+                                    </div>
+                                    <div class="col-lg-2 col-xs-4">
+                                        <a href="{{ route('facturas.index') }}"
+                                            class="btn btn-danger btn-block btn-flat">Atras</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@endsection

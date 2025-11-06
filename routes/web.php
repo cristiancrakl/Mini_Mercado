@@ -23,8 +23,8 @@ Route::resource('clientes', ClienteController::class);
 Route::resource('productos', ProductoController::class);
 Route::resource('proveedores', ProveedorController::class);
 Route::resource('facturas', FacturaController::class);
-Route::resource('metodo_pagos', MetodoPagoController::class);
-Route::resource('orden_compras', OrdenCompraController::class);
+Route::resource('metodoPagos', MetodoPagoController::class);
+Route::resource('ordenCompras', OrdenCompraController::class);
 
 Route::get('cambioestadoCliente', [ClienteController::class, 'cambioestadoCliente'])->name('cambioestadoCliente');
 Route::post('cambioestadoProducto', [ProductoController::class, 'cambioestadoProducto'])->name('cambioestadoProducto');

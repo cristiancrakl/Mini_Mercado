@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Crear Usuario')
+@section('title','Crear Proovedor')
 
 @section('content')
 <div class="content-wrapper">
@@ -17,7 +17,7 @@
                         <div class="card-header bg-secondary">
                             <h3>@yield('title')</h3>
                         </div>
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('clientes.store') }}">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('proveedores.store') }}">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -95,7 +95,7 @@
                                             class="btn btn-primary btn-block btn-flat">Registrar</button>
                                     </div>
                                     <div class="col-lg-2 col-xs-4">
-                                        <a href="{{ route('clientes.index') }}"
+                                        <a href="{{ route('proveedores.index') }}"
                                             class="btn btn-danger btn-block btn-flat">Atras</a>
                                     </div>
                                 </div>

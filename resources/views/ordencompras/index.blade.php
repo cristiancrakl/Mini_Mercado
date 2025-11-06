@@ -18,10 +18,8 @@
                         <div class="card-header bg-secondary"
                             style="font-size: 1.75rem;font-weight: 500; line-height: 1.2; margin-bottom: 0.5rem;">
                             @yield('title')
-                            @can('orden_compras.create')
-                            <a href="{{ route('orden_compras.create') }}" class="btn btn-primary float-right"
+                            <a href="{{ route('ordenCompras.create') }}" class="btn btn-primary float-right"
                                 title="Nuevo"><i class="fas fa-plus nav-icon"></i></a>
-                            @endcan
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-hover" style="width:100%">
@@ -42,20 +40,20 @@
                                         <td>{{ $ordenCompra->proveedor->nombre ?? 'N/A' }}</td>
                                         <td>{{ $ordenCompra->numero_orden }}</td>
                                         <td>
-                                            {{ $ordenCompra->estado ? 'Activo' : 'Inactivo' }}
-                                        </td>
-                                        <td>{{ $ordenCompra->total }}</td>
-                                        <td>
                                             <input data-type="ordencompra" data-id="{{$ordenCompra->id}}"
                                                 data-url="{{ route('cambioestadoOrdenCompra') }}" class="toggle-class"
                                                 type="checkbox" data-toggle="switch" data-on-text="Activo"
                                                 data-off-text="Inactivo" data-on-color="success" data-off-color="danger"
                                                 {{ $ordenCompra->estado ? 'checked' : '' }}>
-                                            <a href="{{ route('orden_compras.edit',$ordenCompra->id) }}"
+                                        </td>
+                                        <td>{{ $ordenCompra->total }}</td>
+                                        <td>
+
+                                            <a href="{{ route('ordenCompras.edit',$ordenCompra->id) }}"
                                                 class="btn btn-info btn-sm" title="Editar"><i
                                                     class="fas fa-pencil-alt"></i></a>
                                             <form class="d-inline delete-form"
-                                                action="{{ route('orden_compras.destroy', $ordenCompra) }}"
+                                                action="{{ route('ordenCompras.destroy', $ordenCompra) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')

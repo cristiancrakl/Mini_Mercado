@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="{{ url('home') }}" class="brand-link">
         <img src="{{asset('img/iconos/logoPrincipal.png')}}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">{{config('app.name')}}</span>
@@ -16,7 +16,7 @@
 
                 <li class="nav-item">
                     <a href="{{route('clientes.index')}}" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Clientes
                         </p>
@@ -24,7 +24,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('productos.index')}}" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
+                        <i class="nav-icon fas fa-box"></i>
                         <p>
                             Productos
                         </p>
@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('metodo_pagos.index')}}" class="nav-link">
+                    <a href="{{route('metodoPagos.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-credit-card"></i>
                         <p>
                             Metodos de Pago
@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('orden_compras.index')}}" class="nav-link">
+                    <a href="{{route('ordenCompras.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-shopping-cart"></i>
                         <p>
                             Ordenes de Compra

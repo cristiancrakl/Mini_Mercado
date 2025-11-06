@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Factura;
+use Illuminate\Database\QueryException;
+use Exception;
+use Illuminate\Support\Facades\Log;
+
 
 class FacturaController extends Controller
 {
@@ -21,7 +25,7 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        //
+        return view('facturas.create');
     }
 
     /**
@@ -29,7 +33,8 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $factura = Factura::create($request->all());
+        return redirect()->route('facturas.index')->with('successMsg', 'El registro se creó exitosamente');
     }
 
     /**
@@ -59,9 +64,20 @@ class FacturaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Factura $factura)
     {
-        //
+        try {
+            $factura->delete();
+            return redirect()->route('facturas.index')->with('successMsg', 'El registro se eliminó exitosamente');
+        } catch (QueryException $e) {
+            // Capturar y manejar violaciones de restricción de clave foránea
+            Log::error('Error al eliminar el ciudad: ' . $e->getMessage());
+            return redirect()->route('facturas.index')->withErrors('El registro que desea eliminar tiene información relacionada. Comuníquese con el Administrador');
+        } catch (Exception $e) {
+            // Capturar y manejar cualquier otra excepción
+            Log::error('Error inesperado al eliminar el ciudad: ' . $e->getMessage());
+            return redirect()->route('facturas.index')->withErrors('Ocurrió un error inesperado al eliminar el registro. Comuníquese con el Administrador');
+        }
     }
 
     public function cambioestadoFactura(Request $request)

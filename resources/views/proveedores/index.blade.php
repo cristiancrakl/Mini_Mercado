@@ -18,10 +18,8 @@
                         <div class="card-header bg-secondary"
                             style="font-size: 1.75rem;font-weight: 500; line-height: 1.2; margin-bottom: 0.5rem;">
                             @yield('title')
-                            @can('proveedores.create')
                             <a href="{{ route('proveedores.create') }}" class="btn btn-primary float-right"
                                 title="Nuevo"><i class="fas fa-plus nav-icon"></i></a>
-                            @endcan
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-hover" style="width:100%">
@@ -49,14 +47,14 @@
                                         <td>{{ $proveedor->telefono }}</td>
                                         <td>{{ $proveedor->email }}</td>
                                         <td>
-                                            {{ $proveedor->estado ? 'Activo' : 'Inactivo' }}
-                                        </td>
-                                        <td>
                                             <input data-type="proveedor" data-id="{{$proveedor->id}}"
                                                 data-url="{{ route('cambioestadoProveedor') }}" class="toggle-class"
                                                 type="checkbox" data-toggle="switch" data-on-text="Activo"
                                                 data-off-text="Inactivo" data-on-color="success" data-off-color="danger"
                                                 {{ $proveedor->estado ? 'checked' : '' }}>
+                                        </td>
+                                        <td>
+
                                             <a href="{{ route('proveedores.edit',$proveedor->id) }}"
                                                 class="btn btn-info btn-sm" title="Editar"><i
                                                     class="fas fa-pencil-alt"></i></a>

@@ -18,10 +18,8 @@
                         <div class="card-header bg-secondary"
                             style="font-size: 1.75rem;font-weight: 500; line-height: 1.2; margin-bottom: 0.5rem;">
                             @yield('title')
-                            @can('productos.create')
                             <a href="{{ route('productos.create') }}" class="btn btn-primary float-right"
                                 title="Nuevo"><i class="fas fa-plus nav-icon"></i></a>
-                            @endcan
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-hover" style="width:100%">
@@ -53,14 +51,11 @@
                                         <td>{{ $producto->stock_minimo }}</td>
                                         <td>
                                             @if($producto->imagen)
-                                            <img src="{{ asset('storage/' . $producto->imagen) }}" alt="Imagen"
+                                            <img src="{{ asset('img/post/' . $producto->imagen) }}" alt="Imagen"
                                                 width="50" height="50">
                                             @else
                                             Sin imagen
                                             @endif
-                                        </td>
-                                        <td>
-                                            {{ $producto->estado ? 'Activo' : 'Inactivo' }}
                                         </td>
                                         <td>
                                             <input data-type="producto" data-id="{{$producto->id}}"
@@ -68,6 +63,9 @@
                                                 type="checkbox" data-toggle="switch" data-on-text="Activo"
                                                 data-off-text="Inactivo" data-on-color="success" data-off-color="danger"
                                                 {{ $producto->estado ? 'checked' : '' }}>
+                                        </td>
+                                        <td>
+
                                             <a href="{{ route('productos.edit',$producto->id) }}"
                                                 class="btn btn-info btn-sm" title="Editar"><i
                                                     class="fas fa-pencil-alt"></i></a>
