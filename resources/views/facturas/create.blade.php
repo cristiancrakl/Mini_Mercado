@@ -24,11 +24,22 @@
                                     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                         <div class="form-group label-floating">
 
-                                            <label class="control-label">ID del cliente<strong
-                                                    style="color:red;">(*)</strong></label>
-                                            <input type="text" class="form-control" name="cliente_id"
-                                                placeholder="Por ejemplo, 1, 2, 3" autocomplete="off"
-                                                value="{{ old('cliente_id') }}">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+
+                                                    <label class="control-label">ID del cliente<strong
+                                                            style="color:red;">(*)</strong></label>
+                                                    <select class="form-control" name="cliente_id" id="cliente">
+                                                        <option value>Seleccione País</option>
+                                                        @foreach($clientes as $cliente)
+                                                        <option value="{{ $cliente->id }}">{{ $cliente->nombre }}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
 
                                             <div class="form-row">
 

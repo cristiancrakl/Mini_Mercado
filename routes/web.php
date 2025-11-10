@@ -33,4 +33,8 @@ Route::post('cambioestadoProveedor', [ProveedorController::class, 'cambioestadoP
 Route::post('cambioestadoMetodoPago', [MetodoPagoController::class, 'cambioestadoMetodoPago'])->name('cambioestadoMetodoPago');
 Route::post('cambioestadoOrdenCompra', [OrdenCompraController::class, 'cambioestadoOrdenCompra'])->name('cambioestadoOrdenCompra');
 
+Route::get('/probar-404', function () {
+    abort(404);
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

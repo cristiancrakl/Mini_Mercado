@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 use App\Models\Factura;
 use Illuminate\Database\QueryException;
@@ -25,7 +26,8 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        return view('facturas.create');
+        $clientes = Cliente::where('estado', '=', 1)->orderBy('nombre')->get();
+        return view('facturas.create', compact('clientes'));
     }
 
     /**

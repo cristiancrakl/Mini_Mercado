@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class OrdenCompraRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        if (request()->isMethod('post')) {
+            return [
+                'proveedores_id' => 'required|exists:proveedores,id',
+                'numero_orden' => 'required|string|max:100|unique:orden_compras,numero_orden',
+                'total' => 'required|numeric|min:0'
+            ];
+        } elseif (request()->isMethod('put') || request()->isMethod('patch')) {
+            return [
+                'proveedores_id' => 'required|exists:proveedores,id',
+                'numero_orden' => 'required|string|max:100|unique:orden_compras,numero_orden,' . $this->route('orden_compra')->id,
+                'total' => 'required|numeric|min:0'
+            ];
+        }
+
+        return [];
+    }
+}

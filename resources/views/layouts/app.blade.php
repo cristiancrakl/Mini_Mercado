@@ -41,6 +41,10 @@
     <link rel="stylesheet" href="{{asset('backend/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('backend/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('backend/plugins/select2/css/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/dist/css/select2.css')}}">
 
 
     <!-- Scripts -->
@@ -71,7 +75,7 @@
 <script src="{{asset('backend/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-$.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -123,6 +127,10 @@ $.widget.bridge('uibutton', $.ui.button)
 <!-- Sweetalert2 -->
 <script src="{{asset('backend/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.js"></script>
+<!-- Select2 -->
+<script src="{{asset('backend/plugins/select2/js/select2.full.js')}}"></script>
+<!-- Selectors -->
+<script src="{{asset('backend/dist/js/selectors.js')}}"></script>
 
 
 @stack('scripts')

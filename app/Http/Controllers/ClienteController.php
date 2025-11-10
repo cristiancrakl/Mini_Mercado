@@ -7,7 +7,7 @@ use App\Models\Cliente;
 use Illuminate\Database\QueryException;
 use Exception;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ClienteRequest;
 
 
 
@@ -37,11 +37,12 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
 
 
         $cliente = Cliente::create($request->all());
+        return redirect()->route('clientes.index')->with('successMsg', 'El registro se creó exitosamente');
 
         // $cliente = new Cliente();
         // $cliente->nombre = $request->nombre;
@@ -55,7 +56,7 @@ class ClienteController extends Controller
         // $cliente->save();
 
 
-        return redirect()->route('clientes.index')->with('successMsg', 'El registro se creó exitosamente');
+
     }
 
     /**

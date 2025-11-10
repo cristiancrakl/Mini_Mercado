@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\QueryException;
 use Exception;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ProductoRequest;
 
 
 class ProductoController extends Controller
@@ -33,7 +33,7 @@ class ProductoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductoRequest $request)
     {
         $producto = Producto::create($request->all());
 
