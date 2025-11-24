@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\OrdenCompra;
 use Illuminate\Http\Request;
 use App\Models\Factura;
 use Illuminate\Database\QueryException;
 use Exception;
 use Illuminate\Support\Facades\Log;
+
 
 
 class FacturaController extends Controller
@@ -28,6 +30,9 @@ class FacturaController extends Controller
     {
         $clientes = Cliente::where('estado', '=', 1)->orderBy('nombre')->get();
         return view('facturas.create', compact('clientes'));
+
+        $ordenCompras = OrdenCompra::where('estado', '=', 1)->orderBy('nombre')->get();
+        return view('facturas.create', compact('ordenCompras'));
     }
 
     /**
@@ -52,7 +57,10 @@ class FacturaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $factura = Factura::findOrFail($id);
+        $clientes = Cliente::where('estado', '=', 1)->orderBy('nombre')->get();
+        $ordenCompras = OrdenCompra::where('estado', '=', 1)->orderBy('nombre')->get();
+        return view('facturas.edit', compact('factura', 'clientes', 'ordenCompras'));
     }
 
     /**
@@ -60,7 +68,9 @@ class FacturaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $factura = Factura::findOrFail($id);
+        $factura->update($request->all());
+        return redirect()->route('facturas.index')->with('successMsg', 'El registro se actualizó exitosamente');
     }
 
     /**

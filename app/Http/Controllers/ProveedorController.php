@@ -49,7 +49,8 @@ class ProveedorController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $proveedor = Proveedor::findOrFail($id);
+        return view('proveedores.edit', compact('proveedor'));
     }
 
     /**
@@ -57,7 +58,9 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $proveedor = Proveedor::findOrFail($id);
+        $proveedor->update($request->all());
+        return redirect()->route('proveedores.index')->with('successMsg', 'El registro se actualizó exitosamente');
     }
 
     /**

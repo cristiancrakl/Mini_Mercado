@@ -65,7 +65,8 @@ class ProductoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        return view('productos.edit', compact('producto'));
     }
 
     /**
@@ -73,7 +74,21 @@ class ProductoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        $producto->update($request->all());
+
+        if ($request->hasFile("imagen")) {
+
+            $imagen = $request->file("imagen");
+            $nombreImagen = Str::slug($request->nombre) . "." . $imagen->guessExtension();
+            $ruta = public_path("img/post/");
+            $imagen->move($ruta, $nombreImagen);
+
+            $producto->imagen = $nombreImagen;
+            $producto->save();
+        }
+
+        return redirect()->route('productos.index')->with('successMsg', 'El registro se actualizó exitosamente');
     }
 
     /**

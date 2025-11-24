@@ -50,7 +50,8 @@ class OrdenCompraController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $ordenCompra = OrdenCompra::findOrFail($id);
+        return view('ordenCompras.edit', compact('ordenCompra'));
     }
 
     /**
@@ -58,7 +59,9 @@ class OrdenCompraController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $ordenCompra = OrdenCompra::findOrFail($id);
+        $ordenCompra->update($request->all());
+        return redirect()->route('ordenCompras.index')->with('successMsg', 'El registro se actualizó exitosamente');
     }
 
     /**

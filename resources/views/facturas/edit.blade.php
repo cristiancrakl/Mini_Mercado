@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Crear Factura')
+@section('title','Editar Factura')
 
 @section('content')
 <div class="content-wrapper">
@@ -17,8 +17,9 @@
                         <div class="card-header bg-secondary">
                             <h3>@yield('title')</h3>
                         </div>
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('facturas.store') }}">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('facturas.update', $factura->id) }}">
                             @csrf
+                            @method('PUT')
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
@@ -31,7 +32,7 @@
                                                             style="color:red;">(*)</strong></label>
                                                     <select class="form-control" name="cliente_id" id="cliente">
                                                         @foreach($clientes as $cliente)
-                                                        <option value="{{ $cliente->id }}">{{ $cliente->nombre }}
+                                                        <option value="{{ $cliente->id }}" {{ $factura->cliente_id == $cliente->id ? 'selected' : '' }}>{{ $cliente->nombre }}
                                                         </option>
                                                         @endforeach
                                                     </select>
@@ -44,7 +45,7 @@
                                                             style="color:red;">(*)</strong></label>
                                                     <select class="form-control" name="ordenCompra_id" id="ordenCompra">
                                                         @foreach($ordenCompras as $ordenCompra)
-                                                        <option value="{{ $ordenCompra->id }}">
+                                                        <option value="{{ $ordenCompra->id }}" {{ $factura->ordenCompra_id == $ordenCompra->id ? 'selected' : '' }}>
                                                             {{ $ordenCompra->nombre }}
                                                         </option>
                                                         @endforeach
@@ -62,7 +63,7 @@
                                                         compra<strong style="color:red;">(*)</strong></label>
                                                     <input type="text" class="form-control" autocomplete="off"
                                                         name="precio_compra" placeholder="Por ejemplo, 1500"
-                                                        value="{{ old('precio_compra') }}">
+                                                        value="{{ $factura->precio_compra }}">
                                                 </div>
 
 
@@ -70,21 +71,21 @@
                                                     <label class="control-label">Saldo
                                                         Pendiente<strong style="color:red;">(*)</strong></label>
                                                     <input type="text" class="form-control" name="saldo_pendiente"
-                                                        value="{{ old('saldo_pendiente') }}"
+                                                        value="{{ $factura->saldo_pendiente }}"
                                                         placeholder="Por ejemplo, 600" autocomplete="off">
                                                 </div>
                                                 <div class="form-group col-md-4 ">
                                                     <label class="control-label">Precio de venta<strong
                                                             style="color:red;">(*)</strong></label>
                                                     <input type="text" class="form-control" name="precio_venta"
-                                                        value="{{ old('precio_venta') }}"
+                                                        value="{{ $factura->precio_venta }}"
                                                         placeholder="Por ejemplo, 1800" autocomplete="off">
                                                 </div>
                                                 <div class="form-group col-md-4 ">
                                                     <label class="control-label">Descuento<strong
                                                             style="color:red;">(*)</strong></label>
-                                                    <input class="form-control" name="descuento" value="1000"
-                                                        value="{{ old('precio_venta') }}"
+                                                    <input class="form-control" name="descuento"
+                                                        value="{{ $factura->descuento }}"
                                                         placeholder="Por ejemplo, 1800" autocomplete="off">
                                                 </div>
 
@@ -98,28 +99,23 @@
 
 
 
+                                <input type="hidden" class="form-control" name="tipo_pago" value="{{ $factura->tipo_pago }}">
 
 
 
-                                <input type="hidden" class="form-control" name="tipo_pago" value="1">
+                                <input type="hidden" class="form-control" name="iva" value="{{ $factura->iva }}">
+
+                                <input type="hidden" class="form-control" name="total" value="{{ $factura->total }}">
 
 
 
-                                <input type="hidden" class="form-control" name="iva" value="200">
-
-                                <input type="hidden" class="form-control" name="total" value="1200">
-
-
-
-                                <input type="hidden" class="form-control" name="estado" value="1">
-                                <input type="hidden" class="form-control" name="registrado_por"
-                                    value="{{ Auth::user()->id }}">
+                                <input type="hidden" class="form-control" name="estado" value="{{ $factura->estado }}">
                             </div>
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-lg-2 col-xs-4">
                                         <button type="submit"
-                                            class="btn btn-primary btn-block btn-flat">Registrar</button>
+                                            class="btn btn-primary btn-block btn-flat">Actualizar</button>
                                     </div>
                                     <div class="col-lg-2 col-xs-4">
                                         <a href="{{ route('facturas.index') }}"

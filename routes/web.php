@@ -37,4 +37,5 @@ Route::get('/probar-404', function () {
     abort(404);
 });
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

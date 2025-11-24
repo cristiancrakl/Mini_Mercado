@@ -25,14 +25,22 @@ class ProductoRequest extends FormRequest
             return [
                 'nombre' => 'required|string|max:255',
                 'descripcion' => 'nullable|string',
-                'precio' => 'required|numeric|min:0',
+                'unidad_medida' => 'required|string',
+                'precio_venta' => 'required|numeric|min:0',
+                'precio_compra' => 'required|numeric|min:0',
+                'stock' => 'required|numeric|min:0',
+                'stock_minimo' => 'required|numeric|min:0',
                 'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ];
         } elseif (request()->isMethod('put')) {
             return [
                 'nombre' => 'required|string|max:255',
                 'descripcion' => 'nullable|string',
-                'precio' => 'required|numeric|min:0',
+                'unidad_medida' => 'required|string',
+                'precio_venta' => 'required|numeric|min:0',
+                'precio_compra' => 'required|numeric|min:0',
+                'stock' => 'required|numeric|min:0',
+                'stock_minimo' => 'required|numeric|min:0',
                 'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ];
         }

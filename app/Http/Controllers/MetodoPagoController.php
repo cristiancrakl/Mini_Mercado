@@ -50,7 +50,8 @@ class MetodoPagoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $metodoPago = MetodoPago::findOrFail($id);
+        return view('metodoPagos.edit', compact('metodoPago'));
     }
 
     /**
@@ -58,7 +59,9 @@ class MetodoPagoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $metodoPago = MetodoPago::findOrFail($id);
+        $metodoPago->update($request->all());
+        return redirect()->route('metodoPagos.index')->with('successMsg', 'El registro se actualizó exitosamente');
     }
 
     /**
