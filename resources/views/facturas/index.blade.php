@@ -54,7 +54,7 @@
                                                 {{ $factura->estado ? 'checked' : '' }}>
                                         </td>
                                         <td>
-
+                                            <a href="{{ route('facturas.show',$factura->id) }}" class="btn btn-primary btn-sm" title="Ver"><i class="fas fa-eye"></i></a>
                                             <a href="{{ route('facturas.edit',$factura->id) }}"
                                                 class="btn btn-info btn-sm" title="Editar"><i
                                                     class="fas fa-pencil-alt"></i></a>

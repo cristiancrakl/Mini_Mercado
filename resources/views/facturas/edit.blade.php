@@ -17,7 +17,8 @@
                         <div class="card-header bg-secondary">
                             <h3>@yield('title')</h3>
                         </div>
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('facturas.update', $factura->id) }}">
+                        <form method="POST" enctype="multipart/form-data"
+                            action="{{ route('facturas.update', $factura->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
@@ -32,38 +33,26 @@
                                                             style="color:red;">(*)</strong></label>
                                                     <select class="form-control" name="cliente_id" id="cliente">
                                                         @foreach($clientes as $cliente)
-                                                        <option value="{{ $cliente->id }}" {{ $factura->cliente_id == $cliente->id ? 'selected' : '' }}>{{ $cliente->nombre }}
+                                                        <option value="{{ $cliente->id }}"
+                                                            {{ $factura->cliente_id == $cliente->id ? 'selected' : '' }}>
+                                                            {{ $cliente->nombre }}
                                                         </option>
                                                         @endforeach
                                                     </select>
 
 
                                                 </div>
-                                                <div class="form-group col-md-6">
-
-                                                    <label class="control-label">Metodo de Pago<strong
-                                                            style="color:red;">(*)</strong></label>
-                                                    <select class="form-control" name="ordenCompra_id" id="ordenCompra">
-                                                        @foreach($ordenCompras as $ordenCompra)
-                                                        <option value="{{ $ordenCompra->id }}" {{ $factura->ordenCompra_id == $ordenCompra->id ? 'selected' : '' }}>
-                                                            {{ $ordenCompra->nombre }}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-
-
-                                                </div>
+                                                <!-- Metodo de pago eliminado: Factura no tiene relación directa a orden_compras/metodo_pagos -->
                                             </div>
 
 
                                             <div class="form-row">
 
                                                 <div class="form-group col-md-4 ">
-                                                    <label class="control-label">Precio de
-                                                        compra<strong style="color:red;">(*)</strong></label>
+                                                    <label class="control-label">Total<strong style="color:red;">(*)</strong></label>
                                                     <input type="text" class="form-control" autocomplete="off"
-                                                        name="precio_compra" placeholder="Por ejemplo, 1500"
-                                                        value="{{ $factura->precio_compra }}">
+                                                        name="total" placeholder="Por ejemplo, 1500"
+                                                        value="{{ $factura->total }}">
                                                 </div>
 
 
@@ -73,13 +62,6 @@
                                                     <input type="text" class="form-control" name="saldo_pendiente"
                                                         value="{{ $factura->saldo_pendiente }}"
                                                         placeholder="Por ejemplo, 600" autocomplete="off">
-                                                </div>
-                                                <div class="form-group col-md-4 ">
-                                                    <label class="control-label">Precio de venta<strong
-                                                            style="color:red;">(*)</strong></label>
-                                                    <input type="text" class="form-control" name="precio_venta"
-                                                        value="{{ $factura->precio_venta }}"
-                                                        placeholder="Por ejemplo, 1800" autocomplete="off">
                                                 </div>
                                                 <div class="form-group col-md-4 ">
                                                     <label class="control-label">Descuento<strong
@@ -99,13 +81,14 @@
 
 
 
-                                <input type="hidden" class="form-control" name="tipo_pago" value="{{ $factura->tipo_pago }}">
+                                <input type="hidden" class="form-control" name="tipo_pago"
+                                    value="{{ $factura->tipo_pago }}">
 
 
 
                                 <input type="hidden" class="form-control" name="iva" value="{{ $factura->iva }}">
 
-                                <input type="hidden" class="form-control" name="total" value="{{ $factura->total }}">
+                                <!-- total enviado desde campo visible -->
 
 
 

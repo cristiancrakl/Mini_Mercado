@@ -8,6 +8,9 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\MetodoPagoController;
 use App\Http\Controllers\OrdenCompraController;
+use Illuminate\Support\Facades\DB;
+
+
 
 
 Route::get('/', function () {
@@ -35,6 +38,22 @@ Route::post('cambioestadoOrdenCompra', [OrdenCompraController::class, 'cambioest
 
 Route::get('/probar-404', function () {
     abort(404);
+});
+
+// Ruta para simular un error 500 (Internal Server Error)
+Route::get('/probar-500', function () {
+    abort(500);
+});
+
+// Ruta para simular un QueryException (error de base de datos)
+Route::get('/probar-db', function () {
+    // Ejecuta una consulta inválida para provocar una QueryException
+    DB::select('select * from tabla_que_no_existe');
+});
+
+// Ruta para lanzar una excepción genérica (500)
+Route::get('/probar-exception', function () {
+    throw new \Exception('Excepción de prueba');
 });
 
 

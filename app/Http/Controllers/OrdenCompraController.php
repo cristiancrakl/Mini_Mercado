@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\OrdenCompra;
+use App\Models\Proveedor;
 use Illuminate\Database\QueryException;
 use Exception;
 use Illuminate\Support\Facades\Log;
@@ -25,7 +26,8 @@ class OrdenCompraController extends Controller
      */
     public function create()
     {
-        return view('ordenCompras.create');
+        $proveedores = Proveedor::where('estado', 1)->orderBy('nombre')->get();
+        return view('ordenCompras.create', compact('proveedores'));
     }
 
     /**
@@ -51,7 +53,8 @@ class OrdenCompraController extends Controller
     public function edit(string $id)
     {
         $ordenCompra = OrdenCompra::findOrFail($id);
-        return view('ordenCompras.edit', compact('ordenCompra'));
+        $proveedores = Proveedor::where('estado', 1)->orderBy('nombre')->get();
+        return view('ordenCompras.edit', compact('ordenCompra', 'proveedores'));
     }
 
     /**
@@ -71,15 +74,15 @@ class OrdenCompraController extends Controller
     {
         try {
             $ordenCompra->delete();
-            return redirect()->route('facturas.index')->with('successMsg', 'El registro se eliminó exitosamente');
+            return redirect()->route('ordenCompras.index')->with('successMsg', 'El registro se eliminó exitosamente');
         } catch (QueryException $e) {
             // Capturar y manejar violaciones de restricción de clave foránea
             Log::error('Error al eliminar el ciudad: ' . $e->getMessage());
-            return redirect()->route('facturas.index')->withErrors('El registro que desea eliminar tiene información relacionada. Comuníquese con el Administrador');
+            return redirect()->route('ordenCompras.index')->withErrors('El registro que desea eliminar tiene información relacionada. Comuníquese con el Administrador');
         } catch (Exception $e) {
             // Capturar y manejar cualquier otra excepción
             Log::error('Error inesperado al eliminar el ciudad: ' . $e->getMessage());
-            return redirect()->route('facturas.index')->withErrors('Ocurrió un error inesperado al eliminar el registro. Comuníquese con el Administrador');
+            return redirect()->route('ordenCompras.index')->withErrors('Ocurrió un error inesperado al eliminar el registro. Comuníquese con el Administrador');
         }
     }
 

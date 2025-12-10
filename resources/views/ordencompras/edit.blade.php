@@ -25,11 +25,14 @@
                                     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                         <div class="form-group label-floating">
 
-                                            <label class="control-label">ID del proveedor<strong
+                                            <label class="control-label">Proveedor<strong
                                                     style="color:red;">(*)</strong></label>
-                                            <input type="text" class="form-control" name="proveedores_id"
-                                                placeholder="Por ejemplo, 1, 2, 3" autocomplete="off"
-                                                value="{{ $ordenCompra->proveedores_id }}">
+                                            <select class="form-control" name="proveedores_id">
+                                                <option value="">Seleccione un proveedor</option>
+                                                @foreach($proveedores as $proveedor)
+                                                <option value="{{ $proveedor->id }}" {{ $ordenCompra->proveedores_id == $proveedor->id ? 'selected' : '' }}>{{ $proveedor->nombre }}</option>
+                                                @endforeach
+                                            </select>
 
                                             <div class="form-row">
 
