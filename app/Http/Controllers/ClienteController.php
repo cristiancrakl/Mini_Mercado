@@ -70,17 +70,33 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Cliente $cliente)
     {
-        //
+        return view('clientes.edit', compact('cliente'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ClienteRequest $request, Cliente $cliente)
     {
-        //
+        try {
+            $cliente->nombre = $request->nombre;
+            $cliente->tipo_documento = $request->tipo_documento;
+            $cliente->numero_documento = $request->numero_documento;
+            $cliente->direccion = $request->direccion;
+            $cliente->telefono = $request->telefono;
+            $cliente->email = $request->email;
+            // no cambiar estado ni registrado_por aquí a menos que venga en el request
+            $cliente->save();
+            return redirect()->route('clientes.index')->with('successMsg', 'El registro se actualizó exitosamente');
+        } catch (QueryException $e) {
+            Log::error('Error al actualizar el cliente: ' . $e->getMessage());
+            return redirect()->back()->withInput()->withErrors('Ocurrió un error en la base de datos al actualizar el registro.');
+        } catch (Exception $e) {
+            Log::error('Error inesperado al actualizar el cliente: ' . $e->getMessage());
+            return redirect()->back()->withInput()->withErrors('Ocurrió un error inesperado al actualizar el registro.');
+        }
     }
 
     /**
